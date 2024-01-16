@@ -583,6 +583,7 @@ public class ATM {
             }
         }
     }
+
     public void endProgram() {
         System.out.println("Thank you for choosing this ATM!");
     }
