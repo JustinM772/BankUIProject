@@ -9,7 +9,7 @@ public class Transaction {
         this.action = action;
         this.savingsBalance = savingsBalance;
         this.checkingBalance = checkingBalance;
-        this.success = success;
+        this.success = success; // contains all information for the user to see about what they have done so far
     }
     public String getID() {
         return ID;

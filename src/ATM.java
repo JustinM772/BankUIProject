@@ -77,7 +77,7 @@ public class ATM {
                         accountTransactionNumber++;
                         System.out.println(IDInfo + "\nSavings Balance: $" + savings.getBalance() + "\nChecking Balance: $" + checking.getBalance());
                         Transaction t = new Transaction(ID, action, savings.getBalance(), checking.getBalance(), false);
-                        transactionHistory.addTransaction(t);
+                        transactionHistory.addTransaction(t); // every transaction is recorded, whether it is successful or unsuccessful
                         System.out.print(ConsoleUtility.YELLOW + "Do you want to do anything else?(yes/no) " + ConsoleUtility.RESET);
                         doAnythingElse = scan.nextLine();
                     } else if (amountToWithdraw % 5 != 0) {
@@ -113,7 +113,7 @@ public class ATM {
                         System.out.print("How many $20 bills to withdraw? " + ConsoleUtility.RESET);
                         int twentyDollarBills = scan.nextInt();
                         scan.nextLine();
-                        if (fiveDollarBills * 5 + twentyDollarBills * 20 != amountToWithdraw) {
+                        if (fiveDollarBills * 5 + twentyDollarBills * 20 != amountToWithdraw) { // checks to see if choice of bills adds up to withdrawal amount; transaction fails if not
                             String action = "Invalid choice of bills";
                             System.out.println(ConsoleUtility.RED + action + ConsoleUtility.RESET);
                             int numZeroes;
@@ -138,7 +138,7 @@ public class ATM {
                             System.out.println(IDInfo + "\nSavings Balance: $" + savings.getBalance() + "\nChecking Balance: $" + checking.getBalance());
                             Transaction t = new Transaction(ID, action, savings.getBalance(), checking.getBalance(), false);
                             transactionHistory.addTransaction(t);
-                            System.out.print(ConsoleUtility.YELLOW + "Do you want to do anything else?(yes/no) " + ConsoleUtility.RESET);
+                            System.out.print(ConsoleUtility.YELLOW + "Do you want to do anything else?(yes/no) " + ConsoleUtility.RESET); // this affects whether the program continues or not, question is asked after every transaction
                             doAnythingElse = scan.nextLine();
                         } else {
                             savings.updateBalance(savings.getBalance() - amountToWithdraw);
@@ -170,7 +170,7 @@ public class ATM {
                             doAnythingElse = scan.nextLine();
                         }
                     }
-                } else if (accountChoice.equals("c")) {
+                } else if (accountChoice.equals("c")) { // processes above are repeated for checking account, just modified to change checking balance instead
                     System.out.print("Enter an amount to withdraw(can only give out $5 and $20 bills): " + ConsoleUtility.RESET);
                     int amountToWithdraw = scan.nextInt();
                     scan.nextLine();
@@ -394,7 +394,7 @@ public class ATM {
                         doAnythingElse = scan.nextLine();
                     } else {
                         savings.updateBalance(savings.getBalance() - amountToTransfer);
-                        checking.updateBalance(checking.getBalance() + amountToTransfer);
+                        checking.updateBalance(checking.getBalance() + amountToTransfer); // both balances are changed as needed
                         String action = "Successfully transferred $" + amountToTransfer + " from Savings to Checking";
                         System.out.println(ConsoleUtility.GREEN + action + ConsoleUtility.RESET);
                         int numZeroes;
@@ -499,7 +499,7 @@ public class ATM {
                 } else {
                     numZeroes = 3;
                 }
-                String IDInfo = "Transaction ID: S";
+                String IDInfo = "Transaction ID: S"; // different type of transaction ID for different type of transaction
                 String ID = "S";
                 for (int i = 0; i < numZeroes; i++) {
                     IDInfo += "0";
@@ -552,7 +552,7 @@ public class ATM {
                 int newPin = scan.nextInt();
                 scan.nextLine();
                 c.updatePIN(newPin);
-                String action = "Successfully changed PIN";
+                String action = "Successfully changed PIN"; // user now has to enter the new PIN and the old one(s) will fail
                 System.out.println(ConsoleUtility.GREEN + action + ConsoleUtility.RESET);
                 int numZeroes;
                 if (securityTransactionNumber > 999) {

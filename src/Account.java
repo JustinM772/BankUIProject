@@ -1,7 +1,7 @@
 public class Account {
     private String name;
     private double balance;
-    private Customer customer;
+    private Customer customer; // uses objects from other classes
     public Account(String name, double balance) {
         this.name = name;
         this.balance = balance;
@@ -12,4 +12,5 @@ public class Account {
     public void updateBalance(double newBalance) {
         balance = newBalance;
     }
+    // methods are used to control balance
 }

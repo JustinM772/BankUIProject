@@ -11,4 +11,5 @@ public class Customer {
     public void updatePIN(int newPIN) {
         PIN = newPIN;
     }
+    // uses methods to control the PIN
 }
