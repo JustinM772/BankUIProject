@@ -65,7 +65,7 @@ public class ATM {
                             numZeroes = 2;
                         } else {
                             numZeroes = 3;
-                        }
+                        } // determines how many 0's to put since just putting the account transaction number won't put the necessary 0's
                         String IDInfo = "Transaction ID: A";
                         String ID = "A";
                         for (int i = 0; i < numZeroes; i++) {
