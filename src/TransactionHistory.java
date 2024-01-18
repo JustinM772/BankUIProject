@@ -3,6 +3,9 @@ public class TransactionHistory {
     public TransactionHistory() {
         transactions = new Transaction[0];
     }
+    public Transaction[] getHistory() {
+        return transactions;
+    }
     public void addTransaction(Transaction transaction) {
         if (transactions.length == 0) {
             transactions = new Transaction[1]; // has to change length if it's 0 to avoid null errors
@@ -15,9 +18,6 @@ public class TransactionHistory {
             }
             transactions[temp.length] = transaction;
         }
-    }
-    public Transaction[] getHistory() {
-        return transactions;
     }
 }
 
